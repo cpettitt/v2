@@ -75,6 +75,17 @@ class V2 {
     }
 
     /**
+     * Computes and returns the angle of this vector in radians.
+     */
+    angle(): number {
+        var result = Math.atan2(this.y, this.x);
+        if (result < 0) {
+            result += 2 * Math.PI;
+        }
+        return result;
+    }
+
+    /**
      * Calculates and returns the dot product of this vector and another vector.
      */
     dot(other: V2): number {

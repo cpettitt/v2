@@ -17,23 +17,6 @@ describe("V2", function () {
         expect(v1.y).equals(10);
     });
 
-    it("can calculate magnitude", function () {
-        expect(v1.magnitude()).equals(Math.sqrt(5 * 5 + 10 * 10));
-        expectUnchanged();
-    });
-
-    it("can calculate magnitude squared", function () {
-        expect(v1.magnitudeSquared()).equals(5 * 5 + 10 * 10);
-        expectUnchanged();
-    });
-
-    it("can normalize the vector", function () {
-        var magnitude = v1.magnitude();
-        expect(v1.normalize().x).equals(5 / magnitude);
-        expect(v1.normalize().y).equals(10 / magnitude);
-        expectUnchanged();
-    });
-
     it("can add vectors", function () {
         expect(v1.add(v2).x).equals(5 + 20);
         expect(v1.add(v2).y).equals(10 + 30);
@@ -57,6 +40,32 @@ describe("V2", function () {
         expect(v1.divide(5).x).equals(5 / 5);
         expect(v1.divide(5).y).equals(10 / 5);
         expectUnchanged();
+    });
+
+    it("can calculate magnitude", function () {
+        expect(v1.magnitude()).equals(Math.sqrt(5 * 5 + 10 * 10));
+        expectUnchanged();
+    });
+
+    it("can calculate magnitude squared", function () {
+        expect(v1.magnitudeSquared()).equals(5 * 5 + 10 * 10);
+        expectUnchanged();
+    });
+
+    it("can normalize the vector", function () {
+        var magnitude = v1.magnitude();
+        expect(v1.normalize().x).equals(5 / magnitude);
+        expect(v1.normalize().y).equals(10 / magnitude);
+        expectUnchanged();
+    });
+
+    it("can calculate the angle of the vector in radians", function() {
+        expect(new V2(0, 0).angle()).equals(0);
+
+        expect(new V2(1, 0).angle()).equals(0);
+        expect(new V2(0, 1).angle()).equals(Math.PI / 2);
+        expect(new V2(-1, 0).angle()).equals(Math.PI);
+        expect(new V2(0, -1).angle()).equals(3 * Math.PI / 2);
     });
 
     it("can calculate the dot product of two vectors", function () {

@@ -47,6 +47,10 @@ declare class V2 {
      */
     magnitude(): number;
     /**
+     * Computes and returns the angle of this vector in radians.
+     */
+    angle(): number;
+    /**
      * Calculates and returns the dot product of this vector and another vector.
      */
     dot(other: V2): number;
